@@ -98,8 +98,3 @@ You can easily customize the appearance of the website by modifying the CSS file
 
 Contributions are welcome! If you'd like to improve the project, feel free to fork the repository, make changes, and submit a pull request.
 
-## License
-
-This project is licensed under the MIT License. See the `LICENSE` file for more details.
-
----
