@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ movie_info.get('title') }}</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+    <!-- Container for movie details -->
+    <div class="container mt-5">
+        <div class="card shadow-lg">
+            <div class="card-body">
+                <!-- Movie Title -->
+                <h1 class="card-title text-center mb-4">{{ movie_info.get('title') }}</h1>
+
+                <!-- Movie Details -->
+                <ul class="list-group list-group-flush">
+                    <li class="list-group-item">
+                        <strong>Year:</strong> {{ movie_info.get('year') }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Rating:</strong> {{ movie_info.get('rating') }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Genres:</strong> {{ ", ".join(movie_info.get('genres', [])) }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Director(s):</strong>
+                        {% for director in movie_info.get('directors', []) %}
+                            {{ director }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Cast:</strong>
+                        {% for actor in movie_info.get('cast', [])[:5] %}
+                            {{ actor }}{% if not loop.last %}, {% endif %}
+                        {% endfor %}
+                        ...
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Plot:</strong> {{ movie_info.get('plot outline') }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Runtime:</strong> {{ movie_info.get('runtimes', ['N/A'])[0] }} minutes
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Country:</strong> {{ ", ".join(movie_info.get('countries', [])) }}
+                    </li>
+                    <li class="list-group-item">
+                        <strong>Language:</strong> {{ ", ".join(movie_info.get('languages', [])) }}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
+
