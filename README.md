@@ -66,7 +66,7 @@ The **Movie Search Website** is a web application built using Flask, Python, HTM
 ### Directory Structure
 
 ```
-movie-search-website/
+movies_flask/
 │
 ├── app.py               # Main Flask application file
 ├── templates/           # HTML templates
